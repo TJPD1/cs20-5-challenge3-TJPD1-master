@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomButton: UIButton!      // Has TAG = 2
     @IBOutlet weak var storyTextView: UILabel!
 
-    var storyIndex : Int = 1
+    var storyIndex : Int = 1 // Keeps track of what story you're in.
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     func setTitle(_ title: String?, for state: UIControlState){
     }
     
-    func story(){
+    func storyTwoToThree(){ //Updates text from story 2 to 3.
         if storyIndex == 2{
             storyTextView.text = story2
             topButton.setTitle(answer2a, for: .normal)
@@ -57,7 +57,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func storyy(){
+    func storyFourToSix(){ //Updates text from story 4 to 6.
         if storyIndex == 4{
             storyTextView.text = story4
             topButton.isHidden = true
@@ -78,29 +78,29 @@ class ViewController: UIViewController {
     
     // User presses one of the buttons
     @IBAction func buttonPressed(_ sender: UIButton) {
-        if sender.tag == 1 && storyIndex == 1{
+        if sender.tag == 1 && storyIndex == 1{// If statements order the story depending on the button's tag and the current storyIndex.
             storyIndex = 3
-            story()
+            storyTwoToThree()
         }
         else if sender.tag == 2 && storyIndex == 1{
             storyIndex = 2
-            story()
+            storyTwoToThree()
         }
         else if sender.tag == 1 && storyIndex == 3{
             storyIndex = 6
-            storyy()
+            storyFourToSix()
         }
         else if sender.tag == 2 && storyIndex == 3{
             storyIndex = 5
-            storyy()
+            storyFourToSix()
         }
         else if sender.tag == 1 && storyIndex == 2{
             storyIndex = 3
-            story()
+            storyTwoToThree()
         }
         else if sender.tag == 2 && storyIndex == 2{
             storyIndex = 4
-            storyy()
+            storyFourToSix()
         }
     }
 
